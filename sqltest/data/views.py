@@ -25,11 +25,11 @@ class Database():
             self.cursor.close()
             self.conn.close()
         return result
-def caibian_read_count(start_time, end_time):
+def caibian_read_count(request):
     db = Database(host="10.10.10.240", port=5432, user="root", password="tF!e5UN?iGMRkB7Z80Ln#O@uCsP^mS", db="dj_analytics")
     params = []
-    start_time = start_time
-    end_time = end_time
+    start_time = request.POST.get("start_time")
+    end_time = request.POST.get("end_time")
     sql1 = """
     select decorated_read from view_article where find_in_set("采编部", editor) and (pub_date between %s and %s);
     """
