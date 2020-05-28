@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-from . import views
+from data import views
 
 urlpatterns = [
-    path('caibian_read_count/', views.caibian_read_count),
+
 ]
